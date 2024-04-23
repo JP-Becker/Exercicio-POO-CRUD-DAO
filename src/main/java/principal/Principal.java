@@ -10,7 +10,7 @@ public class Principal {
        while (opcao != 9) {
            opcao = Integer.parseInt(JOptionPane.showInputDialog(""
                    + "1 - Criar\n"
-                   + "2- Ler\n"
+                   + "2 - Ler\n"
                    + "3 - Atualizar\n"
                    + "4 - Deletar\n"
                    + "5 - Listar todos\n"
@@ -29,18 +29,14 @@ public class Principal {
             break;
             case 2:
             // ler;
-                int idConsultar = Integer.parseInt(JOptionPane.showInputDialog("Digite a ID do aluno a ser excluido:"));
+                int idConsultar = Integer.parseInt(JOptionPane.showInputDialog("Digite a ID do aluno a ser buscado:"));
                 int posicaoConsulta = objetoAluno.procuraIndice(idConsultar);
   
                     if (posicaoConsulta == -1) {
                         System.out.println("ID nao existe");
                     } else {
                         System.out.println("Aluno encontrado!!");
-                        System.out.println("ID: " + objetoAluno.getMinhaLista().get(posicaoConsulta).getId());
-                        System.out.println("Nome: " + objetoAluno.getMinhaLista().get(posicaoConsulta).getNome());
-                        System.out.println("Idade: " + objetoAluno.getMinhaLista().get(posicaoConsulta).getIdade());
-                        System.out.println("Curso: " + objetoAluno.getMinhaLista().get(posicaoConsulta).getCurso());
-                        System.out.println("Fase: " + objetoAluno.getMinhaLista().get(posicaoConsulta).getFase());
+                        System.out.println("ID: " + objetoAluno.getMinhaLista().get(posicaoConsulta).toString());
                     }
                 
             break;
@@ -62,11 +58,12 @@ public class Principal {
                         aluno.setFase(Integer.parseInt(JOptionPane.showInputDialog("Digite a fase")));
                         System.out.println("Aluno de id" + idAtualizar + " alterado");
                     }
-                }
+                
            
             break;
-            case 4:
-            // delete;
+            case 4: 
+            
+            
                 int idExcluir = Integer.parseInt(JOptionPane.showInputDialog("Digite a ID do aluno a ser excluido:"));
                 int posicaoExcluir = objetoAluno.procuraIndice(idExcluir);;
                
@@ -76,16 +73,14 @@ public class Principal {
                     } else {
                         System.out.println("Aluno encontrado!!");
                         objetoAluno.getMinhaLista().remove(posicaoExcluir);
+                        System.out.println("Aluno de id" + idExcluir + " excluído");
                     }
                 
             break;
             case 5:
                 for (int i=0;i < objetoAluno.getMinhaLista().size();i++) {
-                    System.out.println("ID:" + objetoAluno.getMinhaLista().get(i).getId());
-                    System.out.println("Nome:" + objetoAluno.getMinhaLista().get(i).getNome());
-                    System.out.println("Idade:" + objetoAluno.getMinhaLista().get(i).getIdade());
-                    System.out.println("Curso:" + objetoAluno.getMinhaLista().get(i).getCurso());
-                    System.out.println("Fase:" + objetoAluno.getMinhaLista().get(i).getFase());
+                    System.out.println("ID:" + objetoAluno.getMinhaLista().get(i).toString());
+                    
                 }
                 break;
             case 9:
